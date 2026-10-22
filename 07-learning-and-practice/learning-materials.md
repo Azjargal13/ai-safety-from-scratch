@@ -8,3 +8,6 @@
 - <https://thomwolf.io/data/Thom_wolf_reading_list.txt> HuggingFace CSO Thomas Wolf's self study recommendations
 - <https://www.aisafetybook.com/> Introduction to AI Safety, Ethics, and Society by Dan Hendrycks
 - <https://learn.arena.education/> by Alignment Research Engineer Accelerator (ARENA) self course
+- 3Blue1Brown videos
+  - <https://www.youtube.com/watch?v=aircAruvnKk> | But what is a neural network? | Deep learning chapter 1
+  - <https://www.3blue1brown.com/?topic=neural-networks>
