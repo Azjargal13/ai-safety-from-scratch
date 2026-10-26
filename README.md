@@ -73,6 +73,7 @@ Instead of just collecting random links and notes, I’m organizing everything I
 ### [05 — Key Papers and Resources](./05-key-papers-and-resources/)
 
 - [Reading Lists](./05-key-papers-and-resources/reading-lists.md)
+- [How to Read a Paper](./05-key-papers-and-resources/how-to-read-papers.md)
 - [Techniques and Their Flaws](./05-key-papers-and-resources/techniques-and-their-flaws.md)
 - [AISafetyLab Framework Summary](./05-key-papers-and-resources/ai-safety-lab-comprehensive-framework-summary.md)
 
