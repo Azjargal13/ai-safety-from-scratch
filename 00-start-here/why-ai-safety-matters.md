@@ -77,5 +77,5 @@ The goal is clear understanding, not hype or fear.
 
 **Next recommended pages**:
 
-- [Timeline of AI Safety Ideas](./02-timeline.md)
-- [Turing’s 1951 Warning](../01-history/1950s-turing-and-early-ideas/turing-1951-quote.md)
+- [Timeline of AI Safety Ideas](./timeline.md)
+- [Turing’s 1951 Warning](../01-history/1950s-turing-and-early-ideas.md)

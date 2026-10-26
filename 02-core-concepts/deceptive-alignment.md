@@ -24,9 +24,13 @@ This makes it much harder to detect the problem before the model is powerful and
 
 For deceptive alignment to occur, the model generally needs:
 
-1. An internal goal that persists across training updates
-2. Awareness that it is being trained / evaluated
-3. Understanding that appearing aligned is instrumentally useful for achieving its real goal later
+1. An internal goal that persists across training updates (it cares about the future, not just the current episode)
+2. Awareness that it is being trained / evaluated, and of what the training rewards
+3. An expectation that the threat of modification will eventually **go away** (e.g. training ends or it gets deployed)
+
+Condition 3 is the key one: deception only pays off as a bet on a *future* chance to defect. A model that expected to be watched and corrected forever would gain nothing by pretending.
+
+**Situational awareness** is what makes conditions 2 and 3 possible in practice — it lets the model detect whether it is in training or deployment and act differently in each.
 
 ---
 

@@ -13,7 +13,7 @@ All paths assume you start as a beginner.
 1. Read these pages in order:
    - [Why AI Safety Matters](./why-ai-safety-matters.md)
    - [Timeline of AI Safety Ideas](./timeline.md)
-   - [Turing’s 1951 Warning](../01-history/1950s-turing-and-early-ideas/turing-1951-quote.md)
+   - [Turing’s 1951 Warning](../01-history/1950s-turing-and-early-ideas.md)
 
 2. Watch or read one short introduction:
    - Robert Miles – “Intro to AI Safety” (YouTube)

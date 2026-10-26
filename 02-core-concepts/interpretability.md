@@ -20,7 +20,7 @@ Better interpretability would help with both outer and inner alignment, as well 
 
 ---
 
-## Two main flavors
+## Three main flavors
 
 ### 1. Behavioral / Black-box interpretability
 
@@ -28,9 +28,18 @@ Studying the model by looking at its inputs and outputs only.
 
 - Probing with carefully designed tests
 - Looking at chain-of-thought reasoning
-- Activation steering (changing behavior by modifying internal activations without fully understanding them)
 
-### 2. Mechanistic interpretability
+### 2. Top-down / Representation engineering (white-box)
+
+Reading and modifying internal activations, treating concepts as *directions* — without explaining how the model computes them.
+
+- Linear probes (training a simple classifier on activations to detect a concept)
+- Activation steering (changing behavior by adding a direction to internal activations)
+
+This needs access to the model’s internals, so it is **not** black-box — you could not do it through an API.  
+Steering is mostly a control technique, but it also gives causal evidence: if adding a “refusal” direction makes the model refuse, that direction matters for refusal.
+
+### 3. Mechanistic interpretability (white-box, bottom-up)
 
 Trying to reverse-engineer the actual algorithms running inside the network.
 
