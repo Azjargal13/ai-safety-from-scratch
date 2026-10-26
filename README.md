@@ -28,9 +28,76 @@ Instead of just collecting random links and notes, I’m organizing everything I
 ├── 04-organizations-and-people/   ← Who is working on this
 ├── 05-key-papers-and-resources/   ← Important reading
 ├── 06-current-state/              ← Snapshot of the field (living section)
-├── 07-learning-and-practice/      ← Courses, experiments, next steps
-└── 08-quotes-and-primary-sources/ ← Original texts
+├── 07-learning-and-practice/      ← Courses, glossary, research ideas, self-tests
+├── 08-opportunities/              ← Jobs, fellowships, programs
+└── 09-quotes-and-primary-sources/ ← Original texts
 ```
+
+## Contents
+
+### [00 — Start Here](./00-start-here/)
+
+- [What Does “AI Safety” Mean?](./00-start-here/ai-safety-means.md)
+- [Why AI Safety Matters](./00-start-here/why-ai-safety-matters.md)
+- [Timeline of AI Safety Ideas](./00-start-here/timeline.md)
+- [Learning Paths](./00-start-here/learning-paths.md)
+- [Are There Technical Barriers?](./00-start-here/technical-barriers.md)
+
+### [01 — History](./01-history/)
+
+- [Alan Turing’s 1951 Warning](./01-history/1950s-turing-and-early-ideas.md)
+- [Development from the 2000s to 2026](./01-history/development-from-2000s-to-2026.md)
+
+### [02 — Core Concepts](./02-core-concepts/)
+
+- [Outer and Inner Alignment](./02-core-concepts/outer-and-inner-alignment.md)
+- [Reward Hacking](./02-core-concepts/reward-hacking.md)
+- [Goal Misgeneralization](./02-core-concepts/goal-misgeneralization.md)
+- [Deceptive Alignment](./02-core-concepts/deceptive-alignment.md)
+- [Scalable Oversight](./02-core-concepts/scalable-oversight.md)
+- [Interpretability](./02-core-concepts/interpretability.md)
+- [AI Control](./02-core-concepts/ai-control.md)
+- [Evaluations](./02-core-concepts/evaluations.md)
+
+### [03 — Technical Approaches](./03-technical-approaches/)
+
+- [RLHF](./03-technical-approaches/rlhf.md)
+- [Constitutional AI](./03-technical-approaches/constitutional-ai.md)
+- [DPO and Preference Methods](./03-technical-approaches/dpo-and-preference-methods.md)
+- [Other Key Approaches](./03-technical-approaches/other-key-approaches.md)
+
+### [04 — Organizations and People](./04-organizations-and-people/)
+
+- [AI Safety Organizations](./04-organizations-and-people/orgs.md)
+
+### [05 — Key Papers and Resources](./05-key-papers-and-resources/)
+
+- [Reading Lists](./05-key-papers-and-resources/reading-lists.md)
+- [Techniques and Their Flaws](./05-key-papers-and-resources/techniques-and-their-flaws.md)
+- [AISafetyLab Framework Summary](./05-key-papers-and-resources/ai-safety-lab-comprehensive-framework-summary.md)
+
+### [06 — Current State](./06-current-state/)
+
+- [State of the Field — Late 2026](./06-current-state/state-of-the-field-2026.md)
+
+### [07 — Learning and Practice](./07-learning-and-practice/)
+
+- [Glossary](./07-learning-and-practice/glossary.md)
+- [Open Problems](./07-learning-and-practice/open-problems.md)
+- [Learning Materials](./07-learning-and-practice/learning-materials.md)
+- [Human Compatible — Book Summary](./07-learning-and-practice/stuart-russell-book-summary.md)
+- [Implementations](./07-learning-and-practice/implementations.md)
+- [ARENA Progress](./07-learning-and-practice/arena-progress.md)
+- [Beginner-Ready Research Ideas](./07-learning-and-practice/beginner-research-ideas.md)
+- [Quiz Highlights](./07-learning-and-practice/quiz-highlights.md)
+
+### [08 — Opportunities](./08-opportunities/)
+
+- [Jobs and Opportunities](./08-opportunities/jobs-and-opportunities.md)
+
+### [09 — Quotes and Primary Sources](./09-quotes-and-primary-sources/)
+
+- [Early Warnings](./09-quotes-and-primary-sources/early-warnings.md)
 
 ## Contact
 
