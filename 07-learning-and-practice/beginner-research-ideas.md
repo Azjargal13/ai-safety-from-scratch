@@ -49,6 +49,8 @@ Every idea below follows this pattern: a paper to start from, and a twist to add
 
 **Start from:** Yong et al. (2023), *Low-Resource Languages Jailbreak GPT-4* — <https://arxiv.org/abs/2310.02446>
 
+**Update (Oct 2026) — prior work found:** *Sycophancy as a Multilingual Alignment Failure* (arXiv 2606.08451, June 2026) already measured sycophancy across 38 languages and found it rises in low-resource languages. The open question is now **why**: is the gap a real alignment failure, or a confidence artifact (the model knows less, so it gives in more easily)? Mongolian written in different scripts (Cyrillic, Latin, Traditional) also allows a natural test of the paper’s tokenizer explanation. Read the full paper before starting. <https://arxiv.org/abs/2606.08451>
+
 ---
 
 ### 3. Chain-of-thought faithfulness

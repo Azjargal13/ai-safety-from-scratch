@@ -30,7 +30,8 @@ Instead of just collecting random links and notes, I’m organizing everything I
 ├── 06-current-state/              ← Snapshot of the field (living section)
 ├── 07-learning-and-practice/      ← Courses, glossary, research ideas, self-tests
 ├── 08-opportunities/              ← Jobs, fellowships, programs
-└── 09-quotes-and-primary-sources/ ← Original texts
+├── 09-quotes-and-primary-sources/ ← Original texts
+└── 10-experiments/                ← My own research projects
 ```
 
 ## Contents
@@ -99,6 +100,10 @@ Instead of just collecting random links and notes, I’m organizing everything I
 ### [09 — Quotes and Primary Sources](./09-quotes-and-primary-sources/)
 
 - [Early Warnings](./09-quotes-and-primary-sources/early-warnings.md)
+
+### [10 — Experiments](./10-experiments/)
+
+- [Sycophancy in Mongolian — Alignment Failure or Confidence Artifact?](./10-experiments/mongolian-sycophancy/plan.md)
 
 ## Contact
 
