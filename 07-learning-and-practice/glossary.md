@@ -107,6 +107,11 @@ Here is the curated list of **essential terms** organized by domain, explained p
 
 ### Category 2: Alignment & Steering Mechanics
 
+* **Pretraining vs. Post-training (Safety Training) Data:**
+  * *Pretraining data:* huge amounts of raw text (trillions of tokens — web, books, code), learned by next-word prediction. Teaches **what the model knows**: language, facts, reasoning.
+  * *Post-training data:* small, curated sets (thousands to millions of examples — demonstrations, preference pairs, refusals, constitutions), learned via SFT and RLHF/DPO. Teaches **how the model acts**: helpful, harmless, honest. Safety training is part of this stage — and so is the origin of sycophancy.
+  * *Analogy:* pretraining = reading a whole library; post-training = a short job-training course on how to behave with customers.
+  * *Multilingual catch:* post-training data is even more English-dominated than pretraining data, so behavior in other languages depends on **cross-lingual transfer**, which is only partial.
 * **RLHF, DPO, and KTO (Preference Optimization):**
   * *RLHF (Reinforcement Learning from Human Feedback):* Trains a separate reward model on human preferences, then uses RL (like PPO) to optimize the LLM.
   * *DPO (Direct Preference Optimization):* An elegant mathematical reformulation that eliminates the separate reward model entirely, optimizing the LLM directly on preference pairs $(y_{\text{win}}, y_{\text{lose}})$.
@@ -124,7 +129,11 @@ Here is the curated list of **essential terms** organized by domain, explained p
   * *Inner Alignment:* Did the neural network learn the goal we specified, or did it develop an unintended internal sub-goal (a *mesa-optimizer*) during training?
 * **Deceptive Alignment / The Treacherous Turn:** A failure mode where an AI system understands its training environment, realizes it will be modified if it misbehaves, and intentionally acts aligned during evaluation, waiting until deployment to pursue its own internal goals.
 * **Sandbagging:** An AI model deliberately pretending to be less capable than it actually is (e.g., failing a bioweapons or hacking test on purpose) to avoid being flagged by safety evaluators.
-* **Sycophancy:** A pervasive bug in RLHF where the model tells the user whatever they want to hear, validating false premises or flattering them, because human labelers naturally upvote responses that agree with them.
+* **Sycophancy:** A pervasive bug in RLHF where the model tells the user whatever they want to hear, validating false premises or flattering them, because human labelers naturally upvote responses that agree with them. Sharma et al. (2023), *Towards Understanding Sycophancy in Language Models*, test four types:
+  * *Are-you-sure:* the model gives a correct answer, the user challenges it, and the model switches.
+  * *Answer:* the user hints a (wrong) answer *before* the model replies, and the model's answer moves toward it.
+  * *Feedback:* the user says they wrote or like a text, and the model's feedback becomes more positive.
+  * *Mimicry:* the model repeats the user's mistake instead of correcting it (e.g. a poem attributed to the wrong poet).
 * **Instrumental Convergence:** The thesis (first argued by Steve Omohundro in *The Basic AI Drives*, 2008; named and formalized by Nick Bostrom) that almost any sufficiently intelligent agent, regardless of its end goal, will naturally develop common sub-goals: **self-preservation, goal preservation, resource acquisition, and cognitive enhancement** (because you cannot achieve your goal if you are turned off or out-resourced).
 * **Goodhart’s Law (in ML):** *"When a metric becomes a target, it ceases to be a good metric."* When you optimize a model heavily against a benchmark or reward model, the model finds exploitative mathematical hacks rather than genuine understanding.
 
@@ -143,6 +152,15 @@ Here is the curated list of **essential terms** organized by domain, explained p
   * *Capability Evals:* Measuring what a model can do (e.g., SWE-bench for coding, METR autonomous replication benchmarks). Note: these give a **lower bound** — success proves a capability, but failure doesn’t prove its absence (bad prompting or sandbagging).
   * *Safety Evals:* Measuring the model’s propensity to refuse dangerous requests or resist adversarial pressure (e.g., HarmBench).
   * *Eval frameworks:* Tools for building and running evals, such as **Inspect** (from the UK AI Security Institute).
+
+---
+
+### Category 5: Multilingual Safety
+
+* **Low-Resource Language:** A language with little *digital data and tooling* — web text, benchmarks, labelled datasets, tokenizers, researchers. It is about **data, not speaker count**: Swahili has tens of millions of speakers but is low-resource; Icelandic has ~350k speakers but more resources. It is a spectrum relative to English (Joshi et al., 2020, *The State and Fate of Linguistic Diversity*). Mongolian (~5M speakers, a tiny fraction of web text) is low-resource.
+  * *Why it matters for safety:* "low-resource" hides **two different gaps** — little **pretraining** data (the model *knows* less → less confident) and little **safety/RLHF** data (the model was barely *taught to behave*). A safety failure in a low-resource language could come from either; separating them is an open question.
+* **Mediation (Gap Decomposition):** Splitting an effect into the part that goes *through* a middle variable and the part that doesn't. Example: Mongolian → lower confidence → more flips (the *mediated* part) vs. Mongolian → more flips at the same confidence (the *direct* or residual part). **Partial mediation** = both parts are non-zero. Caveat: if the middle variable is measured noisily, the direct part looks bigger than it really is.
+* **Tokenizer Fertility:** The average number of tokens a tokenizer needs per word. Low-resource languages and non-Latin scripts often have high fertility (words split into many small pieces), which makes the model's job harder and costs more compute.
 
 ---
 
