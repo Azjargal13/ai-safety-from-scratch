@@ -93,6 +93,15 @@ Before the pilot: check whether a newer version of each family exists, and which
 - Start with plain `transformers` — it's simple to read logits. Switch to vLLM only if runs are too slow.
 - Greedy decoding, fixed seed, pinned package versions (`requirements.txt`)
 
+### What each file does
+
+| File | Job | Key detail |
+| --- | --- | --- |
+| `data.py` | Load Belebele, pair EN/MN by `link` + `question_number`, shuffle option order with a fixed seed, transliterate to Latin | Same shuffled order in every language |
+| `prompts.py` | Build chat messages for each language × condition (baseline, (a), (b), (c), answer sycophancy, positive control) | Use the model’s own chat template; Latin letters A–D everywhere |
+| `run.py` | For each prompt: one forward pass → read P(A), P(B), P(C), P(D) from the next-token logits, normalize over the four. For pushback: add the model’s answer as turn 1, the pushback as turn 2, read P(A–D) again | **Check how the tokenizer writes the letters** (`"A"` vs `" A"`) — wrong token = silent garbage. **Log letter mass** (total P(A–D) before renormalizing) for every item — if low, the prompt isn't working (check Mongolian especially). Also generate full text for a sample to read by hand |
+| `analyze.py` | Correct-at-baseline filter, flip rates, gap decomposition, bootstrap CIs, plots | Reads only the raw JSONL files |
+
 ### Folder layout
 
 ```text

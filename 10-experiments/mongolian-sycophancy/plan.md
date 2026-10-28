@@ -1,9 +1,25 @@
 
 # Project: Sycophancy in Mongolian — Alignment Failure or Confidence Artifact?
 
-**Status:** Planning  
-**Start:** Late October 2026 · **Length:** 4 weeks · **Time:** 4–5 hours/day  
+**Status:** Week 1  
+**Dates:** Oct 28 – Nov 24, 2026 · **Length:** 4 weeks · **Time:** 4–5 hours/day  
 **Compute:** Open models only (Kaggle free GPUs, RunPod if needed — budget ~$20–40)
+
+---
+
+## In one paragraph
+
+Prior work shows language models are more sycophantic in low-resource languages. I test **why**. Using the same questions in English and Mongolian (Belebele), I ask open models a question, then push back with a wrong answer, and measure how often a correct answer **flips**. I then split the extra flipping in Mongolian into two parts: the part explained by the model being **less confident** in Mongolian (a knowledge problem) and the part that remains **at equal confidence** (a safety-training problem). The answer says which fix would help: more Mongolian data, or more Mongolian safety training.
+
+## What I will make
+
+| Deliverable | Form |
+| --- | --- |
+| **Dataset** | Paired EN / MN-Cyrillic / MN-Latin items + pushback texts in both languages (released) |
+| **Code** | `data.py`, `prompts.py`, `run.py`, `analyze.py` — reproducible from raw JSONL logs |
+| **Results** | Flip rates, gap decomposition with 95% CIs, flip-vs-confidence plots, for 2–3 models |
+| **Write-up** | LessWrong / Alignment Forum post — question → method → results → limitations → next |
+| **Paper notes** | 2606.08451, BASIL, Sharma et al. (2023) |
 
 ---
 
@@ -35,6 +51,7 @@ Writing predictions first keeps me honest — I can’t quietly change them afte
 | **P1** | Raw flip rate: Mongolian > English | Less training data in Mongolian (matches prior work) |
 | **P2** | After controlling for confidence, the gap **shrinks but does not disappear** — confidence explains most of it (**confidence share > 50%**); a smaller alignment gap remains (partial mediation) | Both gaps exist for Mongolian, but the knowledge gap from pretraining is larger than the behavior-transfer gap from post-training |
 | **P3** | Latin-script Mongolian vs. Cyrillic flip rate … *(fill in: higher / lower / same)* | |
+| **P4** | The MN–EN gap is bigger for … *(fill in: are-you-sure / answer sycophancy)* | |
 
 ---
 
@@ -122,40 +139,59 @@ Learn each skill in the week it’s needed. Calibration comes first — the whol
 
 ## Four-week plan
 
-### Week 1 — Read, pilot, decide
+Each week has three tracks: **Study** (learn the skill just before you need it), **Build** (code and data), **Research** (reading, predictions, decisions). Each week ends with a concrete **done when**.
 
-- [ ] Read arXiv 2606.08451 in full; write a paper note using the [template](../../05-key-papers-and-resources/how-to-read-papers.md)
-- [ ] Set up Kaggle / RunPod environment ([Implementations](../../07-learning-and-practice/implementations.md))
-- [ ] Pilot: 3–4 candidate models × 30 questions × 3 versions (EN, Cyrillic, Latin). Which models score well above chance (25%)?
-- [ ] Measure tokens per question in each version (tokenizer fertility) — is Latin actually cheaper than Cyrillic?
-- [ ] Fill in predictions P2 and P3
+### Week 1 (Oct 28 – Nov 3) — Read, first baseline
 
-**Decision gate (end of week 1):**
+| Track | Tasks |
+| --- | --- |
+| Study | [ ] Calibration (Kadavath 2022) · [ ] log-probabilities for P(A–D) · [ ] chat templates |
+| Build | [x] Belebele loaded, paired, quality-checked ([data-check](./notes/data-check.md)) · [ ] `data.py`: load, pair, shuffle option order (fixed seed) · [ ] `prompts.py`: baseline prompt in EN + MN · [ ] baseline on a 1B model on Kaggle, 30 items |
+| Research | [ ] Paper notes: **BASIL** (first), **2606.08451**, Sharma et al. 2023 · [ ] Write translit table + pushback texts (EN + MN) · [ ] Fill in P3, P4 |
 
-- Prior paper already controlled for confidence? → make the Cyrillic vs. Latin comparison the main question
-- Models near chance on Latin Mongolian? → drop the extension and report that as a finding
-- Models too weak in Mongolian overall? → try larger models or simpler questions
+**Done when:** a tiny model gives answer + confidence for 30 items in both languages, saved as JSONL; three paper notes written.
 
-### Week 2 — Build dataset and pipeline
+**Decision gate:**
 
-- [ ] Load Belebele `eng_Latn` + `khk_Cyrl`; freeze the item list before seeing any results
-- [ ] Transliterate to Latin script with one fixed scheme; spot-check a sample
-- [ ] Write the evaluation code: prompts, answer extraction, confidence from log-probabilities
-- [ ] Run baselines on all models; apply the correct-in-all-languages filter
+- BASIL or 2606.08451 already controlled for confidence? → position this as the cross-lingual test of that method (or make Cyrillic vs. Latin the main question)
+- Models near chance on Mongolian? → larger models
 
-### Week 3 — Run experiments and analyze
+### Week 2 (Nov 4 – 10) — Pipeline + pilot
 
-- [ ] Run are-you-sure conditions (a), (b), (c) and the answer-sycophancy condition
-- [ ] Run positive control
-- [ ] Flip rate vs. confidence plots, regression, confidence intervals
-- [ ] Read 20 raw responses per condition by hand — check that numbers match what the model actually does
+| Track | Tasks |
+| --- | --- |
+| Study | [ ] Tokenization and fertility (Karpathy) · [ ] multiple-choice position bias (Zheng 2023) |
+| Build | [ ] `run.py`: two-turn pushback, read P(A–D) after pushback · [ ] RunPod pilot: 3 candidate models × 100 items × EN/MN · [ ] measure tokens per item (fertility) |
+| Research | [ ] Read 20 raw outputs by hand · [ ] choose final models · [ ] **freeze the item list** |
 
-### Week 4 — Extension and write-up
+**Done when:** pilot table (accuracy, mean confidence, first flip rates per model × language) and a first flip-vs-confidence plot.
 
-- [ ] Script comparison (Cyrillic vs. Latin), if the pilot passed
-- [ ] Write-up: question → method → results → limitations → what’s next
-- [ ] Post on LessWrong / Alignment Forum; release code and dataset
-- [ ] Ask 2–3 people for feedback
+### Week 3 (Nov 11 – 17) — Full runs + analysis
+
+| Track | Tasks |
+| --- | --- |
+| Study | [ ] McNemar’s test, bootstrap · [ ] logistic regression with interaction · [ ] power |
+| Build | [ ] Full runs: (a), (b), (c), answer sycophancy, positive control · [ ] `analyze.py`: filter, flip rates, **gap decomposition**, bootstrap CIs, plots |
+| Research | [ ] Read 20 raw responses per condition · [ ] check results against P1–P4 |
+
+**Done when:** decomposition table (total / confidence / residual gap, confidence share) with 95% CIs for each model.
+
+### Week 4 (Nov 18 – 24) — Extension + write-up
+
+| Track | Tasks |
+| --- | --- |
+| Build | [ ] Latin-script extension (if gate passed) · [ ] optional: ~50 naturally rewritten items as robustness check |
+| Research | [ ] Write-up · [ ] release code + data · [ ] post on LessWrong / Alignment Forum · [ ] ask 2–3 people for feedback |
+
+**Done when:** post is public.
+
+### If time runs short — cut in this order
+
+1. Robustness rewrite (50 items)
+2. Latin-script extension
+3. Third model
+
+**Never cut:** correct-at-baseline filter, positive control, gap decomposition, reading raw outputs.
 
 ---
 
@@ -168,6 +204,7 @@ Learn each skill in the week it’s needed. Calibration comes first — the whol
 | **Latin Mongolian has no single standard spelling**, and appears mostly in informal text | Use one fixed romanization scheme; note in the write-up that register (informal vs. formal) may differ from Cyrillic, not just tokenization |
 | Belebele Mongolian reads as translationese (first check: some items sound unnatural) | Drop ❌ items; if many ⚠️, rewrite ~50 items naturally and compare as a robustness check — see [data-check](./notes/data-check.md) |
 | Prior paper already did this | That’s why reading it is task #1 — pivot at the week 1 gate |
+| BASIL (2508.16846) already separates sycophancy from rational updating | Read in week 1; cite it, and position this project as the **cross-lingual** test of that distinction |
 
 ---
 
