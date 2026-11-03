@@ -82,6 +82,15 @@ The problem of getting a model to honestly report what it “knows,” even if i
 
 Voluntary policies published by labs that describe how they will manage risks as models become more capable.
 
+### Empirical vs Theoretical Alignment Research
+
+Two styles of alignment work, split by *how you get evidence*.
+
+- **Empirical** (closely related: **prosaic alignment**, a term Paul Christiano introduced in 2016): run experiments on real models, mostly today's LLMs, and measure what happens. Examples: RLHF/DPO, evals, red-teaming, mechanistic interpretability, AI control, sycophancy studies. Its claim is "this *does* work, here is the data."
+- **Theoretical** (closely related: **agent foundations**, MIRI's classic agenda): use math, logic and philosophy to understand agency, goals and optimization, often without running models. Examples: decision theory, embedded agency, ELK-style "builder vs breaker" thought experiments, learning-theory guarantees. Its claim is "this *should* work, here is the argument."
+- **The tension:** theory without experiments is hard to check. Experiments without theory may only tell you about current models and miss problems that show up once systems are much stronger.
+- **In practice** most people mix the two. Theory suggests what to test, and experiments ground the theory. The Mongolian sycophancy project is empirical.
+
 ## Detailed AI safety vernacular
 
 (with the respective papers)

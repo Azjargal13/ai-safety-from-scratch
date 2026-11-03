@@ -88,6 +88,7 @@ Instead of just collecting random links and notes, I’m organizing everything I
 - [Open Problems](./07-learning-and-practice/open-problems.md)
 - [Learning Materials](./07-learning-and-practice/learning-materials.md)
 - [Human Compatible — Book Summary](./07-learning-and-practice/stuart-russell-book-summary.md)
+- [If Anyone Builds It, Everyone Dies — Book Summary (in progress)](./07-learning-and-practice/if-anyone-builds-it-book-summary.md)
 - [Implementations](./07-learning-and-practice/implementations.md)
 - [ARENA Progress](./07-learning-and-practice/arena-progress.md)
 - [Beginner-Ready Research Ideas](./07-learning-and-practice/beginner-research-ideas.md)
