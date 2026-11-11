@@ -91,6 +91,18 @@ Two styles of alignment work, split by *how you get evidence*.
 - **The tension:** theory without experiments is hard to check. Experiments without theory may only tell you about current models and miss problems that show up once systems are much stronger.
 - **In practice** most people mix the two. Theory suggests what to test, and experiments ground the theory. The Mongolian sycophancy project is empirical.
 
+### Publication Venues (ACL, NeurIPS, arXiv…)
+
+Where a paper appears tells you **who reviewed it** and **which community it is for**.
+
+- **NLP (language) conferences, run by ACL** (Association for Computational Linguistics): ACL, EMNLP, NAACL, EACL. Papers are free on **ACL Anthology**. **Findings of ACL/EMNLP** is a peer-reviewed track for papers accepted but not for the main conference. **ARR (ACL Rolling Review)** is the review *system* that sends papers to these conferences, not a venue itself.
+- **Machine learning conferences:** NeurIPS, ICML, ICLR. Reviews for ICLR (and many NeurIPS papers) are public on **OpenReview**. Most AI safety papers appear here.
+- **Workshops:** smaller events attached to a big conference (e.g. a safety workshop at NeurIPS, a multilingual workshop at ACL). Lighter review, good for first papers and pilots.
+- **Journals** (TACL, JMLR, TMLR): slower, longer review. Less central in ML, where conferences are the main venue.
+- **arXiv:** a preprint server. Anyone can post, **no peer review**. Most papers appear here first, so always check whether an arXiv paper was later accepted somewhere.
+- **For citing:** a conference paper is `@inproceedings`; an arXiv-only paper is `@misc` with the arXiv number.
+- **For the Mongolian sycophancy project:** a multilingual NLP topic fits ACL-family workshops; the safety angle fits NeurIPS/ICLR safety workshops.
+
 ## Detailed AI safety vernacular
 
 (with the respective papers)
