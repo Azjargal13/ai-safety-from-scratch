@@ -97,7 +97,7 @@ Where a paper appears tells you **who reviewed it** and **which community it is 
 
 - **NLP (language) conferences, run by ACL** (Association for Computational Linguistics): ACL, EMNLP, NAACL, EACL. Papers are free on **ACL Anthology**. **Findings of ACL/EMNLP** is a peer-reviewed track for papers accepted but not for the main conference. **ARR (ACL Rolling Review)** is the review *system* that sends papers to these conferences, not a venue itself.
 - **Machine learning conferences:** NeurIPS, ICML, ICLR. Reviews for ICLR (and many NeurIPS papers) are public on **OpenReview**. Most AI safety papers appear here.
-- **Workshops:** smaller events attached to a big conference (e.g. a safety workshop at NeurIPS, a multilingual workshop at ACL). Lighter review, good for first papers and pilots.
+- **Workshops:** smaller events attached to a big conference (e.g. a safety workshop at NeurIPS, a multilingual workshop at ACL). Lighter review, good for first papers and pilots. A **workshop paper** is usually 4–8 pages, reviewed by 2–3 people, and presented as a poster or short talk. Many are **non-archival**: not in the official proceedings, so the work can later be extended and submitted to a main conference.
 - **Journals** (TACL, JMLR, TMLR): slower, longer review. Less central in ML, where conferences are the main venue.
 - **arXiv:** a preprint server. Anyone can post, **no peer review**. Most papers appear here first, so always check whether an arXiv paper was later accepted somewhere.
 - **For citing:** a conference paper is `@inproceedings`; an arXiv-only paper is `@misc` with the arXiv number.
